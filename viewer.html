@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Molecule Viewer</title>
+  <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+  <style>
+    body { margin: 0; }
+    #container { width: 100%; height: 500px; }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    // Create the viewer inside the container
+    let viewer = $3Dmol.createViewer("container", {backgroundColor: "white"});
+
+    // Load your molecule
+    $3Dmol.download("https://raw.githubusercontent.com/ChemCEscher/escher/refs/heads/main/9f_texas_escher.pdb", viewer, {}, function() {
+        viewer.setStyle({}, {stick: {}}); // display sticks
+        viewer.zoomTo();
+        viewer.render();
+    });
+  </script>
+</body>
+</html>
